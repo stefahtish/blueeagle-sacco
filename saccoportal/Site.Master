@@ -1,0 +1,245 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SACCOPortal.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - SACCO Portal</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="x-icon.png" rel="shortcut icon" type="image/x-icon" />
+    
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />               
+                <asp:ScriptReference Path="Scripts/PersianDatePicker.min.js"/>
+              
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        
+         <script type = "text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Are you sure you want to Create a New Leave Application ?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/Dashboard">MKOMBOZI SACCO PORTAL</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <% if (Session["username"] != null)
+                           { %>
+                        <li><a runat="server" href="~/Dashboard"><i class="glyphicon glyphicon-dashboard"></i>  Dashboard</a></li>
+<%--                        <li><a runat="server" href="~/Leave"><i class="glyphicon glyphicon-list-alt"></i>  Application</a></li>--%>
+ <li><a runat="server" visible="true" href="~/Atm"><i class="glyphicon glyphicon-compressed"></i>  ATM</a></li>
+                        
+                          <li class="dropdown">
+                            <a class="dropdown-toggle"
+                               data-toggle="dropdown"
+                               href="#">
+                               Reports
+                                <b class="caret"></b>
+                              </a>
+                            <ul class="dropdown-menu">
+                              <li><a runat="server" href="~/Reports.aspx?r=ms"><i class="glyphicon glyphicon-file"></i>  Member Statement</a></li>
+                               <li><a runat="server" href="~/FosaStatement"><i class="glyphicon glyphicon-file"></i> Fosa Statement </a></li> 
+                             <!-- <li><a runat="server" href="~/Reports.aspx?r=bs"><i class="glyphicon glyphicon-file"></i>  Bosa Statement</a></li> -->
+                               <li><a runat="server" href="~/Reports.aspx?r=lg"><i class="glyphicon glyphicon-file"></i>  Loan Guaranteed</a></li> 
+                                <li><a runat="server" href="~/Reports.aspx?r=lr"><i class="glyphicon glyphicon-file"></i>  Loan Repayment</a></li>
+                                <li><a runat="server" href="~/Reports.aspx?r=lo"><i class="glyphicon glyphicon-file"></i>  Loan Gurantors</a></li>
+                            </ul>
+                          </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li><a runat="server" href="~/Logout"><i class="glyphicon glyphicon-log-out"></i>  Logout</a></li>
+                    </ul>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> <a target="_blank" href="http://surestep.co.ke">By Surestep Systems and Solutions</a><img src="x-icon.png" /></p>
+            </footer>
+        </div>
+        <script src="Scripts/Chart.js"></script>
+        <script>
+                var pieData = [{
+                    value: "<% =Member.Share_d%>",
+                   //value: "500",
+                    color: "#0B87CA",
+                   highlight: "#16A086",
+                   label: "Share Capital"
+               }, {
+                   value: "<%=Member.currentshare_d%>",
+                   //value: "400",
+                   color: "#5D9A27",
+                   highlight: "#1A3586",
+                   label: "Total Deposits"
+               }, {
+                   value: "<%=Member.Oustandandingbal_d%>",
+                   // value: "600",
+                   color: "#E19b06",
+                   highlight: "#8F44AD",
+                   label: "Loan Balance"
+               }];
+
+               window.onload = function () {
+
+                   var ctx2 = document.getElementById("chart-area2").getContext("2d");
+                   window.myPie = new Chart(ctx2).Doughnut(pieData, {
+                       //Boolean - Whether we should show a stroke on each segment
+                       segmentShowStroke: true,
+
+                       //String - The colour of each segment stroke
+                       segmentStrokeColor: "#fff",
+
+                       //Number - The width of each segment stroke
+                       segmentStrokeWidth: 2,
+
+                       //Number - The percentage of the chart that we cut out of the middle
+                       percentageInnerCutout: 50, // This is 0 for Pie charts
+
+                       //Number - Amount of animation steps
+                       animationSteps: 100,
+
+                       //String - Animation easing effect
+                       animationEasing: "easeOutBounce",
+
+                       //Boolean - Whether we animate the rotation of the Doughnut
+                       animateRotate: true,
+
+                       //Boolean - Whether we animate scaling the Doughnut from the centre
+                       animateScale: true,
+                       //String - A legend template
+
+                   });
+                   //window.myDoughnut = new Chart(ctx2).Doughnut(pieData, { responsive: true });
+                   var ctx = document.getElementById("canvas").getContext("2d");
+                   window.myBar = new Chart(ctx).Bar(barChartData, {
+                       responsive: true,
+                   });
+               };
+         </script>
+         
+         <script>
+             var Deposits2011 = function () {
+                 return <%=200%>;
+             };
+             var Deposits2012 = function () {
+                 return <%=600%>;
+             };
+             var Deposits2013 = function () {
+                 return <%=400%>;
+             };
+             var Deposits2014 = function () {
+                 return <%=200%>;
+             };
+             var Deposits2015 = function () {
+                 return <%=700%>;
+             };
+             var Loans2011 = function () {
+                 return <%=300%>;
+             };
+             var Loans2012 = function () {
+                 return <%=600%>;
+             };
+             var Loans2013 = function () {
+                 return <%=500%>;
+             };
+             var Loans2014 = function () {
+                 return <%=300%>;
+             };
+             var Loans2015 = function () {
+                 return <%=800%>;
+             };
+             var Shares2011 = function () {
+                 return <%=300%>;
+             };
+             var Shares2012 = function () {
+                 return <%=300%>;
+             };
+             var Shares2013 = function () {
+                 return <%=400%>;
+             };
+             var Shares2014 = function () {
+                 return <%=700%>;
+             };
+             var Shares2015 = function () {
+                 return <%=200%>;
+             };
+
+
+
+             var barChartData = {
+                 labels: ["2011", "2012", "2013", "2014", "2015"],
+                 datasets: [
+                     {
+                         fillColor: "rgba(39,174,97,0.5)",
+                         highlightFill: "rgba(39,174,97,0.75)",
+                         data: [Deposits2011(), Deposits2012(), Deposits2013(), Deposits2014(), Deposits2015()]
+                     },
+                     {
+                         fillColor: "rgba(26,26,136,0.5)",
+                         highlightFill: "rgba(26,26,136,0.75)",
+                         data: [Loans2011(), Loans2012(), Loans2013(), Loans2014(), Loans2015()]
+                     },
+                    {
+                        fillColor: "rgba(112,31,133,0.5)",
+                        highlightFill: "rgba(112,31,133,0.75)",
+                        data: [Shares2011(), Shares2012(), Shares2013(), Shares2014(), Shares2015()]
+                    }
+                 ]
+
+             }
+
+
+ </script>
+
+    </form>
+</body>
+</html>
