@@ -12,12 +12,11 @@
                 <div class="panel-body">
 
                     <p>Select Loan Number <asp:DropDownList ID="ddFosaAccount" runat="server" CssClass="form-control"></asp:DropDownList></p>
-                    <asp:Button ID="btnView" runat="server" Text="View Repayment" CssClass="btn btn-warning" OnClick="btnView_Click" />
-                </div>
+                    <asp:Button ID="btnView" runat="server" Text="View Repayment" CssClass="btn btn-primary btn-lg" OnClick="btnView_Click" />
+                </div>    
             </div>
     <%
     }
-        %>
- <iframe runat="server" id="pdfLoans" src="" width="100%" height="500"> 
-     </iframe>
-    </asp:Content>
+    %>
+   <iframe runat="server" id="pdfReport" width="100%" height="500" src=""></iframe>
+ </asp:Content>

@@ -9,7 +9,7 @@ using SACCOPortal.NAVWS;
 
 namespace SACCOPortal
 {
-    
+
     public class WSConfig
     {
         public static Portals ObjNav
@@ -20,7 +20,8 @@ namespace SACCOPortal
 
                 try
                 {
-                    var credentials = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"], ConfigurationManager.AppSettings["W_PWD"], ConfigurationManager.AppSettings["DOMAIN"]);
+                    var credentials = new NetworkCredential(ConfigurationManager.AppSettings["W_USER"],
+                        ConfigurationManager.AppSettings["W_PWD"], ConfigurationManager.AppSettings["DOMAIN"]);
                     ws.Credentials = credentials;
                     ws.PreAuthenticate = true;
 
@@ -33,13 +34,14 @@ namespace SACCOPortal
             }
         }
 
+
         public static bool MailFunction(string body, string recepient, string subject)
         {
             bool x = false;
 
             try
             {
-                const string fromAddress = "shirikanoreply@gmail.com";
+                const string fromAddress = "noreplyblueeagle@gmail.com";
                 string toAddress = recepient;
                 var mail = new MailMessage();
                 mail.To.Add(toAddress);
@@ -50,7 +52,8 @@ namespace SACCOPortal
                 var client = new SmtpClient
                 {
                     UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("shirikanoreply@gmail.com", "IJustLikeIt16"),
+                    Credentials = new NetworkCredential("noreplyblueeagle@gmail.com", "blueeaglesacco"),
+                    //"noreplyblueeagle@gmail.com", "blueeglesacco"
                     Port = 587,
                     Host = "smtp.gmail.com",
                     DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -66,7 +69,5 @@ namespace SACCOPortal
             return x;
         }
 
-        
     }
-
 }

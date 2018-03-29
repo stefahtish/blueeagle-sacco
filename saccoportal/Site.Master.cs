@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Net;
+using System.Linq;
+using System.Web.Providers.Entities;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Web;
@@ -10,6 +12,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using SACCOPortal.NavOData;
+
 
 namespace SACCOPortal
 {
@@ -80,17 +83,13 @@ namespace SACCOPortal
             if (Session["username"] != null)
             {
                 ReturnMember();
-            }
 
+
+            }
         }
         protected Member ReturnMember()
         {
             return new Member(Session["username"].ToString());
-        }
-
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
-        {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
     }
 

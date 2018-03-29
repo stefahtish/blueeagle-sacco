@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SACCOPortal</RootNamespace>
     <AssemblyName>SACCOPortal</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,15 +24,17 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,10 +43,26 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=3.3.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.3.7\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.1.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FontAwesomeIcons, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesomeIcons.1.0.3\lib\FontAwesomeIcons.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GoogleReCaptcha">
+      <HintPath>obj\GoogleReCaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialIcons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialIcons.1.0.3\lib\MaterialIcons.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -52,33 +70,34 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.3\lib\net40\Microsoft.Data.Edm.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.3\lib\net40\Microsoft.Data.OData.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.3\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="MSCaptcha">
+      <HintPath>..\..\..\SOLUTIONS\Portals\Nafaka\saccoportal\libs\MSCaptcha.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -90,9 +109,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="AspNet.ScriptManager.jQuery">
-      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ScriptManager.MSAjax">
       <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
     </Reference>
@@ -102,6 +118,7 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -189,56 +206,247 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Atm.aspx" />
+    <Content Include="AtmApp.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bg.jpg" />
+    <Content Include="Content\bootstrap-fullcalendar.css" />
+    <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\charts.css" />
+    <Content Include="Content\CSS\font-awesome.css" />
+    <Content Include="Content\CSS\font-awesome.min.css" />
+    <Content Include="Content\elegant-icons-style.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fullcalendar.css" />
+    <Content Include="Content\HomepageCss\general.css" />
+    <Content Include="Content\HomepageCss\main.css" />
+    <Content Include="Content\HomepageCss\system.css" />
+    <Content Include="Content\HomepageCss\template.css" />
+    <Content Include="Content\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\jquery-ui-1.10.4.min.css" />
+    <Content Include="Content\jquery.easy-pie-chart.css" />
+    <Content Include="Content\line-icons.css" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\PersianDatePicker.css" />
+    <Content Include="Content\PersianDatePicker.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style-responsive.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\sure.css" />
+    <Content Include="Content\surelogo.png" />
+    <Content Include="Content\ui-bootstrap-csp.css" />
+    <Content Include="Content\widgets.css" />
+    <Content Include="Content\xcharts.min.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Account\Web.config" />
+    <Content Include="Default.aspx" />
+    <Content Include="Dividends.aspx" />
+    <Content Include="favicon_logo.ico" />
+    <Content Include="Feedback.aspx" />
+    <Content Include="fonts\ElegantIcons.svg" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\URITHI PREMIER SACCO LOGO AND LETTERHEAD-1.png" />
     <Content Include="FosaStatement.aspx" />
+    <Content Include="HomepageImages\slide1.jpg" />
+    <Content Include="HomepageImages\slide2.jpg" />
+    <Content Include="HomepageImages\slide3.jpg" />
+    <Content Include="kinsdata.aspx" />
+    <Content Include="LoanApplication.aspx" />
+    <Content Include="LoanCalculator.aspx" />
+    <Content Include="LoanProducts.aspx" />
     <Content Include="Loans.aspx" />
+    <Content Include="Loans_BOSA.aspx" />
+    <Content Include="MemberRegistration.aspx" />
+    <Content Include="MyLoansList.aspx" />
+    <Content Include="obj\debug\TempPE\Service References.NavOData.Reference.cs.dll" />
+    <Content Include="obj\debug\TempPE\Service References.NavOData1.Reference.cs.dll" />
+    <Content Include="obj\debug\TempPE\Web References.NAVCPWS.Reference.cs.dll" />
+    <Content Include="obj\debug\TempPE\Web References.NAVWS.Reference.cs.dll" />
+    <Content Include="obj\GoogleReCaptcha.dll" />
+    <Content Include="obj\release\package\PackageTmp\Account\AddPhoneNumber.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\Confirm.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\Forgot.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\Lockout.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\Login.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\Manage.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\ManageLogins.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\ManagePassword.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\OpenAuthProviders.ascx" />
+    <Content Include="obj\release\package\PackageTmp\Account\RegisterExternalLogin.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\ResetPassword.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\TwoFactorAuthenticationSignIn.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Account\VerifyPhoneNumber.aspx" />
+    <Content Include="obj\release\package\PackageTmp\Content\animate.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\bg.jpg" />
+    <Content Include="obj\release\package\PackageTmp\Content\bootstrap-fullcalendar.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\bootstrap-theme.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\bootstrap.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\charts.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\CSS\font-awesome.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\CSS\font-awesome.min.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\elegant-icons-style.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\font-awesome.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\font-awesome.min.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\fontawesome-webfont.svg" />
+    <Content Include="obj\release\package\PackageTmp\Content\fullcalendar.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\jquery-jvectormap-1.2.2.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\jquery-ui-1.10.4.min.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\jquery.easy-pie-chart.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\line-icons.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\owl.carousel.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\Site.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\style-responsive.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\style.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\sure.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\surelogo.png" />
+    <Content Include="obj\release\package\PackageTmp\Content\ui-bootstrap-csp.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\widgets.css" />
+    <Content Include="obj\release\package\PackageTmp\Content\xcharts.min.css" />
+    <Content Include="obj\release\SACCOPortal.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\release\SACCOPortal.dll" />
+    <Content Include="obj\release\SACCOPortal.pdb" />
+    <Content Include="obj\release\SACCOPortal.XmlSerializers.dll" />
+    <Content Include="obj\release\TempPE\Service References.NavOData.Reference.cs.dll" />
+    <Content Include="obj\release\TempPE\Web References.NAVCPWS.Reference.cs.dll" />
+    <Content Include="obj\release\TempPE\Web References.NAVWS.Reference.cs.dll" />
+    <Content Include="PassChange.aspx" />
+    <Content Include="piecharts.aspx" />
+    <Content Include="profile.aspx" />
+    <Content Include="queries.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Reports.aspx" />
-    <Content Include="Scripts\canvasjs.js" />
-    <Content Include="Scripts\canvasjs.min.js" />
-    <Content Include="Scripts\Chart.js" />
-    <Content Include="Scripts\Chart.min.js" />
-    <None Include="Properties\PublishProfiles\Manu.pubxml" />
-    <None Include="Properties\PublishProfiles\niko.pubxml" />
-    <None Include="Properties\PublishProfiles\SACCOPortalLive.pubxml" />
-    <None Include="Properties\PublishProfiles\shirika.pubxml" />
-    <Content Include="Service References\NavOData\Reference.datasvcmap">
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.js" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="Content\Scss\FontAwesome\font-awesome.scss" />
+    <Content Include="Content\Scss\FontAwesome\_variables.scss" />
+    <Content Include="Content\Scss\FontAwesome\_stacked.scss" />
+    <Content Include="Content\Scss\FontAwesome\_rotated-flipped.scss" />
+    <Content Include="Content\Scss\FontAwesome\_path.scss" />
+    <Content Include="Content\Scss\FontAwesome\_mixins.scss" />
+    <Content Include="Content\Scss\FontAwesome\_list.scss" />
+    <Content Include="Content\Scss\FontAwesome\_larger.scss" />
+    <Content Include="Content\Scss\FontAwesome\_icons.scss" />
+    <Content Include="Content\Scss\FontAwesome\_fixed-width.scss" />
+    <Content Include="Content\Scss\FontAwesome\_core.scss" />
+    <Content Include="Content\Scss\FontAwesome\_bordered-pulled.scss" />
+    <Content Include="Content\Scss\FontAwesome\_animated.scss" />
+    <Content Include="Content\Less\FontAwesome\variables.less" />
+    <Content Include="Content\Less\FontAwesome\stacked.less" />
+    <Content Include="Content\Less\FontAwesome\rotated-flipped.less" />
+    <Content Include="Content\Less\FontAwesome\path.less" />
+    <Content Include="Content\Less\FontAwesome\mixins.less" />
+    <Content Include="Content\Less\FontAwesome\list.less" />
+    <Content Include="Content\Less\FontAwesome\larger.less" />
+    <Content Include="Content\Less\FontAwesome\icons.less" />
+    <Content Include="Content\Less\FontAwesome\font-awesome.less" />
+    <Content Include="Content\Less\FontAwesome\fixed-width.less" />
+    <Content Include="Content\Less\FontAwesome\core.less" />
+    <Content Include="Content\Less\FontAwesome\bordered-pulled.less" />
+    <Content Include="Content\Less\FontAwesome\animated.less" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Fonts\FontAwesome.otf" />
+    <Content Include="fonts\ElegantIcons.eot" />
+    <Content Include="fonts\ElegantIcons.ttf" />
+    <Content Include="fonts\ElegantIcons.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Registration.Master" />
+    <Content Include="MemberReg.Master" />
+    <Content Include="obj\release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\release\package\PackageTmp\Account\Web.config" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\fontawesome-webfont.eot" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\fontawesome-webfont.ttf" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\fontawesome-webfont.woff" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\fontawesome-webfont.woff2" />
+    <Content Include="obj\release\package\PackageTmp\Content\Fonts\FontAwesome.otf" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\animated.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\bordered-pulled.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\core.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\fixed-width.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\font-awesome.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\icons.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\larger.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\list.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\mixins.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\path.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\rotated-flipped.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\stacked.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Less\FontAwesome\variables.less" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\font-awesome.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_animated.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_bordered-pulled.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_core.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_fixed-width.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_icons.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_larger.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_list.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_mixins.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_path.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_rotated-flipped.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_stacked.scss" />
+    <Content Include="obj\release\package\PackageTmp\Content\Scss\FontAwesome\_variables.scss" />
+    <Content Include="obj\release\TransformWebConfig\assist\Web.config" />
+    <Content Include="obj\release\TransformWebConfig\original\Web.config" />
+    <Content Include="obj\release\TransformWebConfig\transformed\Web.config" />
+    <None Include="Properties\PublishProfiles\Blueeagles.pubxml" />
+    <Content Include="Scripts\HomepageJS\AnimOnScroll.js" />
+    <Content Include="Scripts\HomepageJS\caption.js" />
+    <Content Include="Scripts\HomepageJS\classie.js" />
+    <Content Include="Scripts\HomepageJS\common.js" />
+    <Content Include="Scripts\HomepageJS\html5fallback.js" />
+    <Content Include="Scripts\HomepageJS\imagesloaded.pkgd.min.js" />
+    <Content Include="Scripts\HomepageJS\isotope.pkgd.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery-migrate.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery-noconflict.js" />
+    <Content Include="Scripts\HomepageJS\jquery-ui.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.bxslider.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.cycle2.carousel.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.cycle2.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.cycle2.video.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.fancybox.js" />
+    <Content Include="Scripts\HomepageJS\jquery.mask.js" />
+    <Content Include="Scripts\HomepageJS\jquery.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.mixitup.js" />
+    <Content Include="Scripts\HomepageJS\jquery.nicescroll.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.placeholder.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.responsiveTabs.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.selectric.min.js" />
+    <Content Include="Scripts\HomepageJS\jquery.webticker.min.js" />
+    <Content Include="Scripts\HomepageJS\masonry.pkgd.min.js" />
+    <Content Include="Scripts\HomepageJS\modernizr.custom.js" />
+    <Content Include="Scripts\HomepageJS\placeholders.min.js" />
+    <Content Include="Scripts\HomepageJS\rangeslider.min.js" />
+    <Content Include="Scripts\HomepageJS\respond.js" />
+    <Content Include="Scripts\HomepageJS\subscribe.js" />
+    <None Include="Service References\NavOData\Reference.datasvcmap">
       <Generator>DataServicesCoreClientGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Settings.aspx" />
+    <Content Include="siteimages\favicon.ico" />
+    <Content Include="Survey.aspx" />
     <Content Include="x-icon.png" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Logout.aspx" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -260,11 +468,8 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -274,9 +479,10 @@
     </Content>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <Content Include="Service References\NavOData\service.edmx" />
+    <Content Include="Defaults.Master" />
+    <Content Include="Site.Master" />
+    <None Include="Service References\NavOData\service.edmx" />
     <None Include="Web References\NAVWS\Portals.wsdl" />
     <None Include="Web References\NAVWS\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -406,6 +612,14 @@
     <Compile Include="Atm.aspx.designer.cs">
       <DependentUpon>Atm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AtmApp.aspx.cs">
+      <DependentUpon>AtmApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AtmApp.aspx.designer.cs">
+      <DependentUpon>AtmApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Config.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -427,6 +641,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dividends.aspx.cs">
+      <DependentUpon>Dividends.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dividends.aspx.designer.cs">
+      <DependentUpon>Dividends.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FosaStatement.aspx.cs">
       <DependentUpon>FosaStatement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -437,12 +665,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="kinsdata.aspx.cs">
+      <DependentUpon>kinsdata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kinsdata.aspx.designer.cs">
+      <DependentUpon>kinsdata.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoanApplication.aspx.cs">
+      <DependentUpon>LoanApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoanApplication.aspx.designer.cs">
+      <DependentUpon>LoanApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoanCalculator.aspx.cs">
+      <DependentUpon>LoanCalculator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoanCalculator.aspx.designer.cs">
+      <DependentUpon>LoanCalculator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoanProducts.aspx.cs">
+      <DependentUpon>LoanProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoanProducts.aspx.designer.cs">
+      <DependentUpon>LoanProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Loans.aspx.cs">
       <DependentUpon>Loans.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Loans.aspx.designer.cs">
       <DependentUpon>Loans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loans_BOSA.aspx.cs">
+      <DependentUpon>Loans_BOSA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loans_BOSA.aspx.designer.cs">
+      <DependentUpon>Loans_BOSA.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -452,12 +715,78 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Member.cs" />
+    <Compile Include="MemberReg.Master.cs">
+      <DependentUpon>MemberReg.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberReg.Master.designer.cs">
+      <DependentUpon>MemberReg.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MemberRegistration.aspx.cs">
+      <DependentUpon>MemberRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberRegistration.aspx.designer.cs">
+      <DependentUpon>MemberRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="MyLoansList.aspx.cs">
+      <DependentUpon>MyLoansList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyLoansList.aspx.designer.cs">
+      <DependentUpon>MyLoansList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="PassChange.aspx.cs">
+      <DependentUpon>PassChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PassChange.aspx.designer.cs">
+      <DependentUpon>PassChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="piecharts.aspx.cs">
+      <DependentUpon>piecharts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="piecharts.aspx.designer.cs">
+      <DependentUpon>piecharts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="queries.aspx.cs">
+      <DependentUpon>queries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="queries.aspx.designer.cs">
+      <DependentUpon>queries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.Master.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.Master.designer.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
     </Compile>
     <Compile Include="Reports.aspx.cs">
       <DependentUpon>Reports.aspx</DependentUpon>
@@ -493,7 +822,21 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Defaults.Master.cs">
+      <DependentUpon>Defaults.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Defaults.Master.designer.cs">
+      <DependentUpon>Defaults.Master</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Survey.aspx.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey.aspx.designer.cs">
+      <DependentUpon>Survey.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -510,6 +853,23 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Downloads\" />
+    <Folder Include="image\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\de\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\es\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\fr\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\it\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\ja\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\ko\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\roslyn\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\ru\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\zh-Hans\" />
+    <Folder Include="obj\release\package\PackageTmp\bin\zh-Hant\" />
+    <Folder Include="obj\release\package\PackageTmp\fonts\" />
+    <Folder Include="obj\release\package\PackageTmp\Scripts\angular-ui\" />
+    <Folder Include="obj\release\package\PackageTmp\Scripts\WebForms\MSAjax\" />
+    <Folder Include="obj\release\ProfileTransformWebConfig\transformed\Account\" />
+    <Folder Include="obj\release\TransformWebConfig\transformed\Account\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -518,10 +878,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://com26:7047/DynamicsNAV90/WS/Shirika%2520Sacco%2520Ltd./Codeunit/Portals">
+    <WebReferenceUrl Include="http://mutinda-19:7047/DynamicsNAV100/WS/BLUE%2520EAGLE%2520SACCO%2520LTD/Codeunit/Portals">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\NAVWS\</RelPath>
-      <UpdateFromURL>http://com26:7047/DynamicsNAV90/WS/Shirika%2520Sacco%2520Ltd./Codeunit/Portals</UpdateFromURL>
+      <UpdateFromURL>http://mutinda-19:7047/DynamicsNAV100/WS/BLUE%2520EAGLE%2520SACCO%2520LTD/Codeunit/Portals</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -538,6 +898,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

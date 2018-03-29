@@ -11,7 +11,7 @@
                 <div class="panel-body">
 
                     <p>Select Fosa Account <asp:DropDownList ID="ddFosaAccount" runat="server" CssClass="form-control"></asp:DropDownList></p>
-                    <asp:Button OnClientClick="btnView_Click" ID="btnView" runat="server" Text="View Statement" CssClass="btn btn-warning" OnClick="btnView_Click" />
+                    <asp:Button ID="btnView" runat="server" Text="View Statement" CssClass="btn btn-warning" OnClick="btnView_Click" />
                 </div>
             </div>
         </div>

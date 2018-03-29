@@ -26,19 +26,11 @@ namespace SACCOPortal.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://victor:7778/shirika/WS/Shirika%20Sacco%20Ltd./Codeunit/Portals")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://mutinda-19:7047/DynamicsNAV100/WS/BLUE%20EAGLE%20SACCO%20LTD/Codeunit/Port" +
+            "als")]
         public string SACCOPortal_NAVWS_Portals {
             get {
                 return ((string)(this["SACCOPortal_NAVWS_Portals"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
-            get {
-                return ((string)(this["Setting"]));
             }
         }
     }

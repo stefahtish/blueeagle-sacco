@@ -27,19 +27,19 @@ namespace SACCOPortal
             }
             if (!IsPostBack)
             {
-                LoadLoans(nav);
+                LoadLoans(nav, ddFosaAccount);
             }
             if (Request.QueryString["r"] == "ms")
             {
                 printMemberStatement();
             }
-            if (Request.QueryString["r"] == "fs")
+            //if (Request.QueryString["r"] == "ds")
+            //{
+            //    printDepositsStatement();
+            //}
+            if (Request.QueryString["r"] == "ls")
             {
-                printFosaStatement();
-            }
-            if (Request.QueryString["r"] == "bs")
-            {
-                printBosaStatement();
+                printLoansStatement();
             }
             if (Request.QueryString["r"] == "lg")
             {
@@ -49,10 +49,7 @@ namespace SACCOPortal
             {
                 printLoanGurantortatement();
             }
-            if (Request.QueryString["r"] == "lr")
-            {
-               // printLoanRepayment();
-            }
+           
         }
 
 
@@ -61,10 +58,9 @@ namespace SACCOPortal
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnMemberStatement(Session["username"].ToString(),String.Format("MS{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("MS{0}.pdf", filename)));
-
+                WSConfig.ObjNav.FnMemberStatement(Session["username"].ToString(),String.Format("MEMBER STATEMENT{0}.pdf", filename));
+				pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("MEMBER STATEMENT{0}.pdf", filename)));
+              
             }
             catch (Exception exception)
             {
@@ -72,14 +68,14 @@ namespace SACCOPortal
             }
         }
 
-        public void printFosaStatement()
+        public void printLoansStatement()
         {
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnFosaStatement(Session["account"].ToString(), String.Format("FS{0}.pdf", filename));
+                WSConfig.ObjNav.FnLoanStatement(Session["username"].ToString(), String.Format("LOAN STATEMENT{0}.pdf", filename));
                 //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("FS{0}.pdf", filename)));
+                pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LOAN STATEMENT{0}.pdf", filename)));
 
             }
             catch (Exception exception)
@@ -87,29 +83,33 @@ namespace SACCOPortal
                 exception.Data.Clear();
             }
         }
-        public void printBosaStatement()
+        public void printBosaStatement( NAV navData)
         {
-            var filename = Session["username"].ToString().Replace(@"/", @"");
-            try
-            {
-                WSConfig.ObjNav.FnMemberStatement(Session["username"].ToString(), String.Format("BS{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("BS{0}.pdf", filename)));
+    //        var filename = Session["username"].ToString().Replace(@"/", @"");
+    //        var test = Session["username"].ToString();
+    //        try
+    //        {
+    //            var objFosaAccount =
+    //            navData.FosaAccounts.Where(r => r.BOSA_Account_No == Session["username"].ToString()).Select(r => r.No).FirstOrDefault();
+    //            WSConfig.ObjNav.FnFosaStatement(objFosaAccount.ToString(), String.Format("LS{0}.pdf", filename));
 
-            }
-            catch (Exception exception)
-            {
-                exception.Data.Clear();
-            }
+				////CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+				//pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LS{0}.pdf", filename)));
+
+    //        }
+    //        catch (Exception exception)
+    //        {
+    //            exception.Data.Clear();
+    //        }
         }
         public void printLoanGuranteedStatement()
         {
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnLoanGuranteed(Session["username"].ToString(), String.Format("LG{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LG{0}.pdf", filename)));
+                WSConfig.ObjNav.FnLoanGuranteed(Session["username"].ToString(), String.Format("LOANS GUARANTEED{0}.pdf", filename));
+				//CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+				pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LOANS GUARANTEED{0}.pdf", filename)));
 
             }
             catch (Exception exception)
@@ -117,14 +117,30 @@ namespace SACCOPortal
                 exception.Data.Clear();
             }
         }
+
+        //public void printDepositsStatement() {
+        //    var filename = Session["username"].ToString().Replace(@"/", @"");
+        //    try
+        //    {
+        //        WSConfig.ObjNav.FnDepositsStatement(Session["username"].ToString(), String.Format("DEPOSITS STATEMENT{0}.pdf", filename));
+        //        //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+        //        pdfReport.Attributes.Add("src", ResolveUrl("http://192.168.1.2:801/" + String.Format("DEPOSITS STATEMENT{0}.pdf", filename)));
+
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        exception.Data.Clear();
+        //    }
+        //}
+
         public void printLoanGurantortatement()
         {
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnLoanGurantorsReport(Session["username"].ToString(), String.Format("LO{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LO{0}.pdf", filename)));
+                WSConfig.ObjNav.FnLoanGurantorsReport(Session["username"].ToString(), String.Format("LOAN GUARANTORS{0}.pdf", filename));
+				//CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+				pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LOAN GUARANTORS{0}.pdf", filename)));
 
             }
             catch (Exception exception)
@@ -137,9 +153,10 @@ namespace SACCOPortal
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnFosaStatement(Session["account"].ToString(), String.Format("LR{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LR{0}.pdf", filename)));
+                WSConfig.ObjNav.FnFosaStatement(Session["username"].ToString(), String.Format("LOAN REPAYMENT{0}.pdf", filename));
+				//CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+				pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LOAN REPAYMENT{0}.pdf", filename)));
+
 
             }
             catch (Exception exception)
@@ -153,9 +170,9 @@ namespace SACCOPortal
             var filename = Session["username"].ToString().Replace(@"/", @"");
             try
             {
-                WSConfig.ObjNav.FnLoanRepaymentShedule(ddFosaAccount.SelectedValue, String.Format("LR{0}.pdf", filename));
-                //CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
-                pdfLoans.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("LR{0}.pdf", filename)));
+                WSConfig.ObjNav.FnLoanRepaymentShedule(ddFosaAccount.SelectedValue, String.Format("REPAYMENT SCHEDULE{0}.pdf", filename));
+				//CopyFile(ConfigurationManager.AppSettings["SRC_FILE"] + String.Format("PAYSLIP{0}.pdf", filename), ConfigurationManager.AppSettings["DEST_FILE"] + String.Format("PAYSLIP{0}.pdf", filename));
+				pdfReport.Attributes.Add("src", ResolveUrl("~/Downloads/" + String.Format("REPAYMENT SCHEDULE{0}.pdf", filename)));
 
             }
             catch (Exception exception)
@@ -165,13 +182,15 @@ namespace SACCOPortal
 
         }
 
-       public void LoadLoans(NAV navData)
+       public void LoadLoans(NAV navData, DropDownList ddlist)
        {
-            var objFosaAccount = navData.LoansReg.Where(r => r.Client_Code == Session["username"]).ToList();
-            ddFosaAccount.DataSource = objFosaAccount;
-            ddFosaAccount.DataTextField = "Loan_Product_Type";
-            ddFosaAccount.DataValueField = "Loan_No";
-            ddFosaAccount.DataBind();
+           var objFosaAccount = navData.LoansR
+                .ToList().Where( n => n.Client_Code == Session["username"].ToString());
+
+           ddlist.DataSource = objFosaAccount;
+           ddlist.DataTextField = "Loan_No";
+           ddlist.DataValueField = "Loan_No";
+           ddlist.DataBind();
         }
     }
 }

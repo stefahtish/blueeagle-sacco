@@ -40,12 +40,12 @@ namespace SACCOPortal
 
         protected void LoadFosaAccounts(NAV navData)
         {
-            var objFosaAccount =
-            navData.FosaAccounts.Where(r => r.BOSA_Account_No == Session["username"].ToString()).ToList();
-            ddFosaAccount.DataSource = objFosaAccount;
-            ddFosaAccount.DataTextField = "No";
-            ddFosaAccount.DataValueField = "No";
-            ddFosaAccount.DataBind();
+            //var objFosaAccount =
+            //navData.FosaAccounts.Where(r => r.BOSA_Account_No == Session["username"].ToString()).ToList();
+            //ddFosaAccount.DataSource = objFosaAccount;
+            //ddFosaAccount.DataTextField = "No";
+            //ddFosaAccount.DataValueField = "No";
+            //ddFosaAccount.DataBind();
         }
     }
 }

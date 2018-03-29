@@ -13,22 +13,13 @@ namespace SACCOPortal {
     public partial class Dashboard {
         
         /// <summary>
-        /// gvKins control.
+        /// lblfreeShares control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvKins;
-        
-        /// <summary>
-        /// GvBeneficiary control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvBeneficiary;
+        protected global::System.Web.UI.WebControls.Label lblfreeShares;
         
         /// <summary>
         /// gvMinistatement control.
@@ -38,5 +29,14 @@ namespace SACCOPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvMinistatement;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
